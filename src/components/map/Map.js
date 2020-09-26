@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const MapContainer = styled.div`
   position: absolute;
@@ -34,4 +35,19 @@ export const Map = ({
   }, []);
 
   return <MapContainer ref={mapContainerRef} />;
+};
+
+Map.propTypes = {
+  apiToken: (props, propName, componentName) => {
+    let expectedStart = 'pk.ey';
+    const isValidKey = props[propName].startsWith(expectedStart);
+    if (!isValidKey) {
+      return new Error(
+        `Invalid prop ${propName} supplied to ${componentName}.` +
+          `Make sure it starts with ${expectedStart}`
+      );
+    }
+  },
+  center: PropTypes.arrayOf(PropTypes.number),
+  zoom: PropTypes.number,
 };
