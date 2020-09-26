@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withMap } from './map/withMap';
 
-const RemoteGeoJsonLayer = ({ url, map }) => {
+const RemoteGeoJsonPointsLayer = ({ url, map }) => {
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -30,8 +30,8 @@ const RemoteGeoJsonLayer = ({ url, map }) => {
   return null;
 };
 
-RemoteGeoJsonLayer.propTypes = {
+RemoteGeoJsonPointsLayer.propTypes = {
   url: PropTypes.string,
 };
 
-export default withMap(RemoteGeoJsonLayer);
+export default withMap(RemoteGeoJsonPointsLayer);
