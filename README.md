@@ -1,8 +1,8 @@
-# POC Mapbox and Deck.GL
+# Mapbox and Deck.GL
 
 Playing around by combining both libs, following [this Medium article](https://medium.com/vis-gl/deckgl-and-mapbox-better-together-47b29d6d4fb1).
-In order to make this work, you need to have a Mapbox account and an [access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/)
-for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). The key shoud start with `pk.ey` and contain a lot of 
+In order to run this, you need to have a Mapbox account and an [access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/)
+for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). The key should start with `pk.ey` and contain a lot of 
 letters and numbers. Once you have it, you need to put it in the `.env` file, check the `env.example` for what variable
 name you need to use.
 
