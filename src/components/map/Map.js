@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
+import { MapContext } from './MapContext';
 
 const MapContainer = styled.div`
   position: absolute;
@@ -15,9 +17,11 @@ export const Map = ({
   apiToken,
   center = [-104.9876, 39.7405],
   zoom = 12.5,
+  children,
 }) => {
-  mapboxgl.accessToken = apiToken;
-  const mapContainerRef = useRef(null);
+  mapboxgl.accessToken = apiToken; // configure mapbox api
+  const mapContainerRef = useRef(null); // attached to the div containing the map
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -30,11 +34,19 @@ export const Map = ({
 
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
+    map.on('load', () => {
+      setMap(map);
+    });
+
     // clean up on unmount
     return () => map.remove();
-  }, []);
+  }, []); // only run effect once
 
-  return <MapContainer ref={mapContainerRef} />;
+  return (
+    <MapContainer ref={mapContainerRef}>
+      <MapContext.Provider value={map}>{children}</MapContext.Provider>
+    </MapContainer>
+  );
 };
 
 Map.propTypes = {

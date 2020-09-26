@@ -1,0 +1,127 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "id": 1,
+        "category": "A",
+        "relations": [5]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.40057373046875,
+          52.53815246377623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "id": 2,
+        "category": "A",
+        "relations": [6,7]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.459968566894531,
+          52.52896341209634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "id": 3,
+        "category": "A",
+        "relations": [4]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.359031677246094,
+          52.506818254212604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#9c0d0d",
+        "marker-size": "small",
+        "marker-symbol": "",
+        "id": 4,
+        "category": "B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.41156005859375,
+          52.50180270642149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#9c0d0d",
+        "marker-size": "small",
+        "marker-symbol": "",
+        "id": 5,
+        "category": "B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.376541137695312,
+          52.53209625938427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#9c0d0d",
+        "marker-size": "small",
+        "marker-symbol": "",
+        "id": 6,
+        "category": "B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.454475402832031,
+          52.54587813253921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#9c0d0d",
+        "marker-size": "small",
+        "marker-symbol": "",
+        "category": "B",
+        "id": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.475074768066406,
+          52.52207036136366
+        ]
+      }
+    }
+  ]
+}
