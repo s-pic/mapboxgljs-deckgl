@@ -18,9 +18,12 @@ const RemoteGeoJsonPointsLayer = ({ url, map }) => {
           type: 'symbol',
           source: sourceId,
           layout: {
-            // TODO: style dynamically based on feature props
-            'icon-image': 'marker-15', // see https://labs.mapbox.com/maki-icons for list of icons
+            'icon-image': 'bicycle-15', // see https://labs.mapbox.com/maki-icons for list of icons
             'icon-allow-overlap': true,
+            'icon-anchor': 'bottom',
+          },
+          paint: {
+            'icon-color': ['feature-state', 'marker-color'], // wtf, mapbox is not able to colorize icons, see https://github.com/mapbox/mapbox-gl-js/issues/1817
           },
         });
       })
