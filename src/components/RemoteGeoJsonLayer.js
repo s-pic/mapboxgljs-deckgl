@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { MapContext } from './map/MapContext';
+import { withMap } from './map/withMap';
 
-const RemoteGeoJsonLayer = ({ url }) => {
-  const map = React.useContext(MapContext);
+const RemoteGeoJsonLayer = ({ url, map }) => {
   useEffect(() => {
-    if (!map) return;
     fetch(url)
       .then((res) => res.json())
       .then((geoJsonData) => {
@@ -36,4 +34,4 @@ RemoteGeoJsonLayer.propTypes = {
   url: PropTypes.string,
 };
 
-export default RemoteGeoJsonLayer;
+export default withMap(RemoteGeoJsonLayer);
