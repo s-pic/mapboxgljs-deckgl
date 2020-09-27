@@ -50,6 +50,10 @@ export const Map = ({
 };
 
 Map.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   apiToken: (props, propName, componentName) => {
     let expectedStart = 'pk.ey';
     const isValidKey = props[propName].startsWith(expectedStart);
