@@ -19,6 +19,8 @@ function App() {
   }, []);
 
   return !sampleGeoData ? null : (
+    // TODO: create SelectedFeatureContext (https://medium.com/@0n3z3r0n3/react-usecontext-how-to-update-context-from-child-component-8fa2894eee3d)
+    //   and only show arc layer if geojson feature is hovered
     <Map apiToken={mapboxSecret} center={[13.404954, 52.520008]}>
       <GeoJsonPointsLayer data={sampleGeoData} />
       <ArcLayer data={sampleGeoData} />
