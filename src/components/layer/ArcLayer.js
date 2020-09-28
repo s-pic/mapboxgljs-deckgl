@@ -42,7 +42,7 @@ const UnwrappedArcLayer = ({ map, data }) => {
       getTargetColor: () => [51, 223, 255],
     });
     map.addLayer(arcLayer);
-  }, [data.features]);
+  }, [data, map]);
   return null;
 };
 
