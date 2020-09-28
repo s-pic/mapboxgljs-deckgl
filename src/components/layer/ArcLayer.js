@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import { ArcLayer as DeckArcLayer } from '@deck.gl/layers';
@@ -42,7 +42,7 @@ const UnwrappedArcLayer = ({ map, data }) => {
       getTargetColor: () => [51, 223, 255],
     });
     map.addLayer(arcLayer);
-  }, []);
+  }, [data.features]);
   return null;
 };
 
