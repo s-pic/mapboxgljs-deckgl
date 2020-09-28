@@ -23,7 +23,7 @@ export const Map = ({
   const mapContainerRef = useRef(null); // attached to the div containing the map
   const [map, setMap] = useState(null);
 
-  useEffect(() => {
+  const initializeMap = () => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       // See style options here: https://docs.mapbox.com/api/maps/#styles
@@ -40,7 +40,11 @@ export const Map = ({
 
     // clean up on unmount
     return () => map.remove();
-  }, []); // only run effect once
+  };
+
+  useEffect(initializeMap, [
+    initializeMap, // https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+  ]); // only run effect once
 
   return (
     <MapContainer ref={mapContainerRef}>
