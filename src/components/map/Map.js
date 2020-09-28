@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -23,7 +23,7 @@ export const Map = ({
   const mapContainerRef = useRef(null); // attached to the div containing the map
   const [map, setMap] = useState(null);
 
-  const initializeMap = () => {
+  const initializeMap = useCallback(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       // See style options here: https://docs.mapbox.com/api/maps/#styles
@@ -40,7 +40,7 @@ export const Map = ({
 
     // clean up on unmount
     return () => map.remove();
-  };
+  }, []);
 
   useEffect(initializeMap, [
     initializeMap, // https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
