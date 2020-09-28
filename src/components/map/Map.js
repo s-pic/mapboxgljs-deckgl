@@ -44,6 +44,7 @@ export const Map = ({
     // FIXME: dependencies have only been added to make eslint happy but they make no sense.
     center,
     map,
+    zoom,
   ]); // only run effect once
 
   return (
