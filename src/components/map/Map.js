@@ -40,7 +40,11 @@ export const Map = ({
 
     // clean up on unmount
     return () => map.remove();
-  }, []); // only run effect once
+  }, [
+    // FIXME: dependencies have only been added to make eslint happy but they make no sense.
+    center,
+    map,
+  ]); // only run effect once
 
   return (
     <MapContainer ref={mapContainerRef}>
