@@ -14,8 +14,12 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: [],
+  plugins: [
+    'react-hooks'
+  ],
   rules: {
     'react/prop-types': 1,
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
   },
 };
