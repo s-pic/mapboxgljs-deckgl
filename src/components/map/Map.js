@@ -5,12 +5,10 @@ import PropTypes from 'prop-types';
 
 import { MapContext } from './MapContext';
 
-const MapContainer = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+const MapWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 `;
 
 export const Map = ({
@@ -35,6 +33,7 @@ export const Map = ({
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
     map.on('load', () => {
+      map.resize();
       setMap(map);
     });
 
@@ -43,9 +42,9 @@ export const Map = ({
   }, [center, zoom]); // only run effect once
 
   return (
-    <MapContainer ref={mapContainerRef}>
+    <MapWrapper ref={mapContainerRef}>
       <MapContext.Provider value={map}>{children}</MapContext.Provider>
-    </MapContainer>
+    </MapWrapper>
   );
 };
 

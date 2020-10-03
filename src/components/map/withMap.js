@@ -7,8 +7,8 @@ export const withMap = (MapConsumingComponent) => {
     return map ? <MapConsumingComponent map={map} {...props} /> : null;
   }
 
-  WithMap.displayName = `withFoo(${
+  WithMap.displayName = `withMap(${
     MapConsumingComponent.displayName || MapConsumingComponent.name
-  }`;
+  })`;
   return WithMap;
 };

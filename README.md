@@ -6,9 +6,8 @@ for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). The key should st
 letters and numbers. Once you have it, you need to put it in the `.env` file, check the `env.example` for what variable
 name you need to use.
 
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project utilizes [grommet](https://v2.grommet.io/) components.
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

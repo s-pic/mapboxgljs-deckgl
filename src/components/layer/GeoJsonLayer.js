@@ -2,8 +2,14 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import { withMap } from '../map/withMap';
+import { handleFeatureSelect } from '../../utils/handleFeatureSelect';
 
-const UnwrappedGeoJsonPointsLayer = ({ data, map }) => {
+const UnwrappedGeoJsonPointsLayer = ({
+  data,
+  map,
+  setSelectedFeature,
+  unsetSelectedFeature,
+}) => {
   useEffect(() => {
     const sourceId = 'random-points-source';
     const layerId = 'random-points-layer';
@@ -13,25 +19,51 @@ const UnwrappedGeoJsonPointsLayer = ({ data, map }) => {
     });
     map.addLayer({
       id: layerId,
-      type: 'symbol',
+      // using a circle layer since mapbox does not offer conditionally picking a symbol, see https://github.com/mapbox/mapbox-gl-js/issues/1817
+      type: 'circle',
       source: sourceId,
-      layout: {
-        'icon-image': 'bicycle-15', // see https://labs.mapbox.com/maki-icons for list of icons
-        'icon-allow-overlap': true,
-        'icon-anchor': 'bottom',
-      },
       paint: {
-        'icon-color': ['feature-state', 'marker-color'], // wtf, mapbox is not able to colorize icons, see https://github.com/mapbox/mapbox-gl-js/issues/1817
+        'circle-radius': [
+          'match',
+          ['get', 'category'],
+          'A',
+          10,
+          'B',
+          5,
+          /* default */
+          5,
+        ],
+        'circle-color': [
+          'match',
+          ['get', 'category'],
+          'A',
+          '#8b0000',
+          'B',
+          '#000059',
+          /* default */
+
+          '#ccc',
+        ],
       },
     });
-  });
+
+    handleFeatureSelect({
+      map,
+      layerId,
+      setSelectedFeature,
+      unsetSelectedFeature,
+    });
+
+    return () => map.removeLayer(layerId);
+  }, [data, map, setSelectedFeature, unsetSelectedFeature]);
 
   return null;
 };
 
 UnwrappedGeoJsonPointsLayer.propTypes = {
-  data: PropTypes.object,
-  map: PropTypes.instanceOf(mapboxgl.Map),
+  data: PropTypes.object.isRequired,
+  map: PropTypes.instanceOf(mapboxgl.Map).isRequired,
+  setSelectedFeature: PropTypes.func.isRequired,
 };
 
 export const GeoJsonPointsLayer = withMap(UnwrappedGeoJsonPointsLayer);
