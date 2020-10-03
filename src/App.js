@@ -36,7 +36,8 @@ function App({
 
   const isMobile = getIsMobile();
   const instructions =
-    'Move the mouse over those big red dots to see their linkages to the blue map features. ' +
+    `${isMobile ? 'Tap' : 'Move the mouse over'} those big red dots ` +
+    'to see their linkages to the blue map features. ' +
     'Make sure to checkout the map controls in the bottom. ' +
     `To tilt the map in a 3D view, ${
       isMobile
