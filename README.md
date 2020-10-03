@@ -1,7 +1,11 @@
 # Mapbox and Deck.GL
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d9160378-3e9b-413c-99ac-ef5ae7d7bed3/deploy-status)](https://app.netlify.com/sites/mapboxgl-deckgl-arclayer-playground/deploys)
+
 Playing around by combining both libs, following [this Medium article](https://medium.com/vis-gl/deckgl-and-mapbox-better-together-47b29d6d4fb1).
-In order to run this, you need to have a Mapbox account and an [access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/)
+Checkout the [demo](https://mapboxgl-deckgl-arclayer-playground.netlify.app/).
+
+In order to run this locally, you need to have a Mapbox account and an [access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/)
 for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/). The key should start with `pk.ey` and contain a lot of 
 letters and numbers. Once you have it, you need to put it in the `.env` file, check the `env.example` for what variable
 name you need to use.
