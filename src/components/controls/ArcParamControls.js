@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: white;
 
   @media screen and (max-width: 600px) {
     padding: 12px;

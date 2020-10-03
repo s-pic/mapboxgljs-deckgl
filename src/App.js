@@ -12,6 +12,7 @@ import { InitialNotification } from './components/InitialNotification';
 import { GeoJsonPointsLayer } from './components/layer/GeoJsonLayer';
 import { ArcParamControls } from './components/controls/ArcParamControls';
 import { getIsMobile } from './utils/getIsMobile';
+import { Loader } from './components/Loader';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -43,7 +44,9 @@ function App({
         : 'click both mouse buttons and move the mouse around vertically'
     }.`;
 
-  return !geoData ? null : (
+  return !geoData ? (
+    <Loader />
+  ) : (
     <>
       <InitialNotification
         heading="Hey there, good to see you!"
