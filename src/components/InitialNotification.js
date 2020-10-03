@@ -8,7 +8,6 @@ const Box = styled.div`
   top: 12px;
   right: 12px;
   max-width: 600px;
-  width: 100%;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   border-radius: 8px;
